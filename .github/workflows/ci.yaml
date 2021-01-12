@@ -6,8 +6,10 @@ on:
   pull_request:
     branches: [ '**' ]
 
+#/home/runner
 env:
-  HOLBA_OPT_DIR: /home/runner/cache
+  HOLBA_OPT_DIR: ~/cache
+  HOLBA_BOT_GITHUB_TOKEN: 'needs to be placed in and loaded from github actions secrets, and script needs to be adapted too'
 
 jobs:
   build:
@@ -24,20 +26,22 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ${{ env.HOLBA_OPT_DIR }}
+          key: ${{ runner.os }}-${{ matrix.polyml }}
+
       - name: prepare cache
-        run: ./install.sh
+        if: steps.cache-primes.outputs.cache-hit != 'true'
+        run: |
+          ./install.sh
+
       - name: configure, make and test
         run: |
           ./configure.sh
           make
 
-
-#- name: Cache multiple paths
-#  uses: actions/cache@v2
-#  with:
-#    path: |
-#      ~/cache
-#      !~/cache/exclude
-#      **/node_modules
-#    key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
 
