@@ -3,7 +3,7 @@
 all:
 	echo "${HOLBA_OPT_DIR}"
 	echo "making now"
-	sleep 10
+	sleep 5
 	date
 
 .PHONY: all

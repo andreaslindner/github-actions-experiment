@@ -2,6 +2,6 @@
 
 echo "${HOLBA_OPT_DIR}"
 echo "installing now"
-sleep 10
+sleep 5
 date
 

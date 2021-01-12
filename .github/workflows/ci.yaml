@@ -7,11 +7,12 @@ on:
     branches: [ '**' ]
 
 env:
-  HOLBA_OPT_DIR: ${{ env.HOME }}/cache
+  CI_HOME_DIR: /home/runner
+  HOLBA_OPT_DIR: ${{ CI_HOME_DIR }}/cache
 
 jobs:
   build:
-    name: CI build
+    name: CI Build
     runs-on: ubuntu-20.04
 
     strategy:
@@ -24,12 +25,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: install
+      - name: prepare cache
         run: ./install.sh
-      - name: configure
-        run: ./configure.sh
-      - name: make
-        run: make
+      - name: configure, make and test
+        run: |
+          ./configure.sh
+          make
 
 
 #- name: Cache multiple paths
