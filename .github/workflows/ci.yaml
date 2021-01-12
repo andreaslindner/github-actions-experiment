@@ -8,11 +8,16 @@ on:
 
 env:
   HOLBA_OPT_DIR: $HOME/cache
+  HOLBA_POLYML_VERSION: ${{ matrix.polyml }}
 
 jobs:
   build:
     name: CI scripts
     runs-on: ubuntu-20.04
+
+    strategy:
+      matrix:
+        polyml: ['v5.7.1', 'v5.8']
 
     steps:
       - name: Checkout code
