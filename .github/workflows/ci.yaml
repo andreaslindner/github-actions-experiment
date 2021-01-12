@@ -8,7 +8,6 @@ on:
 
 env:
   HOLBA_OPT_DIR: $HOME/cache
-  HOLBA_POLYML_VERSION: ${{ matrix.polyml }}
 
 jobs:
   build:
@@ -18,6 +17,9 @@ jobs:
     strategy:
       matrix:
         polyml: ['v5.7.1', 'v5.8']
+
+    env:
+      HOLBA_POLYML_VERSION: ${{ matrix.polyml }}
 
     steps:
       - name: Checkout code
