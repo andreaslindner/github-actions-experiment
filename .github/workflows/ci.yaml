@@ -8,7 +8,7 @@ on:
 
 env:
   CI_HOME_DIR: /home/runner
-  HOLBA_OPT_DIR: ${{ CI_HOME_DIR }}/cache
+  HOLBA_OPT_DIR: ${{ env.CI_HOME_DIR }}/cache
 
 jobs:
   build:
