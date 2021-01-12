@@ -4,12 +4,15 @@ on:
   push:
     branches: [ master ]
   pull_request:
-    branches: [ master ]
+    branches: [ '**' ]
+
+env:
+  HOLBA_OPT_DIR: $HOME/cache
 
 jobs:
   build:
     name: CI scripts
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
       - name: Checkout code
