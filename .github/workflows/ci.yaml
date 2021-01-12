@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
+
+jobs:
+  build:
+    name: CI scripts
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: install
+        run: ./install.sh
+      - name: configure
+        run: ./configure.sh
+      - name: make
+        run: make
+
+
+#- name: Cache multiple paths
+#  uses: actions/cache@v2
+#  with:
+#    path: |
+#      ~/cache
+#      !~/cache/exclude
+#      **/node_modules
+#    key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+
