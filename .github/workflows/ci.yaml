@@ -7,7 +7,7 @@ on:
     branches: [ '**' ]
 
 env:
-  HOLBA_OPT_DIR: ${{HOME}}/cache
+  HOLBA_OPT_DIR: ${HOME}/cache
 
 jobs:
   build:
