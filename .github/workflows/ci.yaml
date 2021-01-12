@@ -7,11 +7,11 @@ on:
     branches: [ '**' ]
 
 env:
-  HOLBA_OPT_DIR: $HOME/cache
+  HOLBA_OPT_DIR: ${{ env.HOME }}/cache
 
 jobs:
   build:
-    name: CI scripts
+    name: CI build
     runs-on: ubuntu-20.04
 
     strategy:
