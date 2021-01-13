@@ -26,7 +26,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Cache
+      - name: Cache dependencies
+        id: cache-deps
         uses: actions/cache@v2
         with:
           path: |
@@ -34,7 +35,7 @@ jobs:
           key: OS-${{ runner.os }}_poly-${{ matrix.polyml }}
 
       - name: prepare cache
-        if: steps.cache-primes.outputs.cache-hit != 'true'
+        if: steps.cache-deps.outputs.cache-hit != 'true'
         run: |
           ./install.sh
 
