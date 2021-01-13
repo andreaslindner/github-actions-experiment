@@ -31,7 +31,7 @@ jobs:
         with:
           path: |
             ${{ env.HOLBA_OPT_DIR }}
-          key: ${{ runner.os }}-${{ matrix.polyml }}
+          key: OS-${{ runner.os }}_poly-${{ matrix.polyml }}
 
       - name: prepare cache
         if: steps.cache-primes.outputs.cache-hit != 'true'
