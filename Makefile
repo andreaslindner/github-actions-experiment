@@ -1,4 +1,3 @@
-
 .DEFAULT_GOAL := all
 all:
 	echo "${HOLBA_OPT_DIR}"
