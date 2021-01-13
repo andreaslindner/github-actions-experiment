@@ -6,14 +6,13 @@ on:
   pull_request:
     branches: [ '**' ]
 
-#/home/runner
 env:
-  HOLBA_OPT_DIR: ~/cache
+  HOLBA_OPT_DIR: /home/runner/cache
   HOLBA_BOT_GITHUB_TOKEN: 'needs to be placed in and loaded from github actions secrets, and script needs to be adapted too'
 
 jobs:
   build:
-    name: CI Build
+    name: Build
     runs-on: ubuntu-20.04
 
     strategy:
