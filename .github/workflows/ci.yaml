@@ -35,7 +35,7 @@ jobs:
           key: OS-${{ runner.os }}_poly-${{ matrix.polyml }}
 
       - name: prepare cache
-        if: steps.cache-deps.outputs.cache-hit != 'true'
+#        if: steps.cache-deps.outputs.cache-hit != 'true'
         run: |
           ./install.sh
 
