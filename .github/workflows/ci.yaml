@@ -8,7 +8,7 @@ on:
 
 env:
   HOLBA_OPT_DIR: /home/runner/cache
-  HOLBA_BOT_GITHUB_TOKEN: 'needs to be placed in and loaded from github actions secrets, and script needs to be adapted too'
+  HOLBA_BOT_GITHUB_TOKEN: 'see scripts/ci/post-comment-on-PR.sh, use github actions secrets'
 
 jobs:
   build:
@@ -32,7 +32,7 @@ jobs:
         with:
           path: |
             ${{ env.HOLBA_OPT_DIR }}
-          key: OS-${{ runner.os }}_poly-${{ matrix.polyml }}
+          key: os-${{ runner.os }}_poly-${{ matrix.polyml }}
 
       - name: prepare cache
 #        if: steps.cache-deps.outputs.cache-hit != 'true'
