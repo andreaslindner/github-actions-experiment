@@ -32,7 +32,7 @@ jobs:
         with:
           path: |
             ${{ env.HOLBA_OPT_DIR }}
-          key: os-${{ runner.os }}_poly-${{ matrix.polyml }}
+          key: os-${{ runner.os }}_polyml-${{ matrix.polyml }}
 
       - name: prepare cache
 #        if: steps.cache-deps.outputs.cache-hit != 'true'
